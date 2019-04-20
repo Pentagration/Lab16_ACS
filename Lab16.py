@@ -4,7 +4,6 @@
 
 from urllib import request
 import sys
-import re
 
 req = request.Request('https://github.com/facebook/react-native/issues/10471')
 
@@ -24,9 +23,20 @@ if resp.code != 200:
 writeString = ''
 
 data = resp.read()
-data.split('<p>')
+data = data.split('<p>') # Delim is paragraph tag
+data.pop(0) # Removing whatever comes before the first paragraph
 for str in data:
-    if str ==
+    str = '!' + str # Adding a exclamation point to the beginning of every new string.
+
+data = data.split('</p>') # running delim as ending paragraph tag.
+data.remove(-1) # Removing whatever comes after the last paragraph tag
+
+for str in data:
+    if str[0] == '!':
+        writeString = writeString + str + '\n'
+
+
+
 
 
 
