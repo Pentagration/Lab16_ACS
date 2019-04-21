@@ -2,28 +2,18 @@
 # Adam, Colin, Sergio
 #-------------------------------------
 
-from urllib import request
+import urllib
 import sys
 import os
 
+def lab16(site):
+    os.getcwd()
+    file=open("lab16output.html","w")
+    data=urllib.urlopen(site)
+    data = data.readlines()
+    for line in data:
+        if "<path" in line:
+            file.write(line)
+    file.close()
 
-writeString = ''
-with urllib.request.urlopen('https://www.bbc.com/news/world-us-canada-48001382') as url:
-    data = url.read() # Need utf-8 decode somewhere in here.
-data = data.readlines()
-for line in data:
-    if '<p>' in line:
-        while not '</p>' in line:
-            writeString = writeString + line
-
-
-
-
-
-
-#file = open("/home/colin/Documents/School/PentagrationGithub/Lab16_ACS/index.html", "wt")
-
-#ile.write(writeString)
-
-#file.close()
-print(writeString)
+lab16("https://www.bbc.com/news")
