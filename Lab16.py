@@ -7,14 +7,9 @@ import sys
 import os
 
 
-import urllib.request
-with urllib.request.urlopen("http://www.python.org") as url:
-    s = url.read()
-
-
 writeString = ''
 with urllib.request.urlopen('https://www.bbc.com/news/world-us-canada-48001382') as url:
-    data = url.read()
+    data = url.read() # Need utf-8 decode somewhere in here.
 data = data.readlines()
 for line in data:
     if '<p>' in line:
