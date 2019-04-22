@@ -1,5 +1,5 @@
 # Lab 16 URLs and HTML
-# Adam, Colin, Sergio
+# Adam Houser, Colin Reed, Sergio Quiroz
 #-------------------------------------
 
 import urllib
